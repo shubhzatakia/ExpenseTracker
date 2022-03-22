@@ -1,0 +1,84 @@
+{%load static%}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PDF Output</title>
+
+    <style>
+        table {
+          border-collapse: separate;
+          border-spacing: 0 15px;
+        }
+
+        th {
+          background-color: #4287f5;
+          color: white;
+        }
+
+        th,
+        td {
+          width: 120px;
+          text-align: center;
+          border: 1px solid black;
+          padding: 2px;
+        }
+
+        h1 {
+          display: block;
+          font-weight: bold;
+          text-align: center;
+          color: #4287f5
+        }
+
+        h2 {
+          text-decoration-line: underline
+        }
+
+    </style>
+
+
+</head>
+<body>
+    <img src="https://pngtree.com/freepng/red-and-black-logo_5517319.html">
+
+    <h1>EXPENSE TRACKER</h1>
+
+    <h2> List of Expenses </h2>
+
+    <table class="table">
+        <thead class="thead">
+            <tr>
+                <th>No</th>
+                <th>Amount</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for expenses in expenses %}
+
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{expenses.amount}}</td>
+                <td>{{expenses.category}}</td>
+                <td>{{expenses.description}}</td>
+                <td>{{expenses.date}}</td>
+            </tr>
+
+            {%endfor%}
+
+            <tr>
+                <td>Total Expense</td>
+                <td>{{total}}</td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</body>
+</html>
